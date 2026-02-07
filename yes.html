@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine 💖</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+      background: #ffdde1;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    /* Heart background */
+    body::before {
+      content: "❤️ 💕 💖 💗 💘 ❤️ 💕 💖 💗 💘";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      font-size: 40px;
+      opacity: 0.25;
+      animation: float 20s linear infinite;
+      white-space: nowrap;
+    }
+
+    @keyframes float {
+      from { transform: translateY(0); }
+      to { transform: translateY(-100%); }
+    }
+
+    h1 {
+      color: #c9184a;
+      z-index: 2;
+    }
+
+    .buttons {
+      margin-top: 20px;
+      z-index: 2;
+    }
+
+    button {
+      font-size: 20px;
+      padding: 12px 26px;
+      margin: 10px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    .yes {
+      background-color: #ff4d6d;
+      color: white;
+    }
+
+    .no {
+      background-color: #ced4da;
+      color: black;
+      position: absolute;
+    }
+
+    #comment {
+      margin-top: 25px;
+      font-size: 18px;
+      color: #6a040f;
+      min-height: 24px;
+      z-index: 2;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Will you be my Valentine? 💖</h1>
+
+  <div class="buttons">
+    <button class="yes" onclick="goYes()">YES 💕</button>
+    <button class="no" id="noBtn" onmouseover="noAction()">NO 🙈</button>
+  </div>
+
+  <div id="comment"></div>
+
+  <script>
+    const funnyComments = [
+      "Ayyo! NO aa? 😜",
+      "Try again… YES pakkane undi 😉",
+      "NO button siggu padutundi 😂",
+      "Heart break chesthava 💔",
+      "Oops! NO parigettindi 🏃‍♂️",
+      "YES looks better 💖"
+    ];
+
+    function goYes() {
+      window.location.href = "yes.html";
+    }
+
+    function noAction() {
+      // Move NO button
+      const noBtn = document.getElementById("noBtn");
+      const x = Math.random() * (window.innerWidth - 120);
+      const y = Math.random() * (window.innerHeight - 120);
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+
+      // Show funny comment
+      const msg =
+        funnyComments[Math.floor(Math.random() * funnyComments.length)];
+      document.getElementById("comment").innerText = msg;
+    }
+  </script>
+
+</body>
+</html>
