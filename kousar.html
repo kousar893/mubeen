@@ -1,45 +1,85 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Valentine 💖</title>
+  <title>For You ❤️</title>
   <style>
     body {
-      text-align: center;
-      margin-top: 100px;
-      font-family: Arial;
       background-color: pink;
+      text-align: center;
+      font-family: Arial;
+      overflow: hidden;
     }
+
+    h1 {
+      color: red;
+      margin-top: 50px;
+    }
+
     button {
+      padding: 15px 30px;
       font-size: 20px;
-      padding: 10px 20px;
-      margin: 20px;
+      border-radius: 30px;
+      border: none;
       cursor: pointer;
     }
-    #noBtn {
+
+    #yes {
+      background-color: red;
+      color: white;
+    }
+
+    #no {
+      background-color: white;
+      color: red;
+      border: 2px solid red;
       position: absolute;
+    }
+
+    #comment {
+      margin-top: 30px;
+      font-size: 22px;
+      color: darkred;
+      font-weight: bold;
     }
   </style>
 </head>
 
 <body>
 
-  <h1>Will you be my Valentine? 💕</h1>
+<h1>Do you love me? ❤️</h1>
 
-  <button onclick="yesClick()">YES 💖</button>
-  <button id="noBtn" onmouseover="moveNo()">NO 😜</button>
+<button id="yes" onclick="yesClick()">YES 💖</button>
+<button id="no" onmouseover="moveNo()">NO 💔</button>
 
-  <script>
-    function yesClick() {
-      alert("Yay!!! I love you ❤️🥰");
-    }
+<div id="comment"></div>
 
-    function moveNo() {
-      var x = Math.random() * (window.innerWidth - 100);
-      var y = Math.random() * (window.innerHeight - 100);
-      document.getElementById("noBtn").style.left = x + "px";
-      document.getElementById("noBtn").style.top = y + "px";
-    }
-  </script>
+<script>
+  let comments = [
+  "NO aa? Amma baboi 😱",
+  "Heart break avuthundi 💔😂",
+  "Ee NO fake button 😜",
+  "YES kosam wait chestunna ❤️",
+  "NO cheppadaniki option ledu 😏",
+  "YES ane word easy kada 😄",
+  "Try again... but YES 😍",
+  "Escape avvalevu 😆"
+  ];
+
+  function moveNo() {
+    let x = Math.random() * (window.innerWidth - 100);
+    let y = Math.random() * (window.innerHeight - 100);
+
+    document.getElementById("no").style.left = x + "px";
+    document.getElementById("no").style.top = y + "px";
+
+    let randomComment = comments[Math.floor(Math.random() * comments.length)];
+    document.getElementById("comment").innerText = randomComment;
+  }
+
+  function yesClick() {
+    window.location.href = "yes.html";
+  }
+</script>
 
 </body>
 </html>
