@@ -90,6 +90,96 @@
   setInterval(createHeart, 700);
 </script>
 
-</body>
+</body> 
+  <!-- NEXT BUTTON -->
+<button id="nextBtn">Next ➡️</button>
+
+<!-- GIFTS SECTION -->
+<div id="gifts">
+  <h2>Something for you 💖</h2>
+
+  <div class="gift-container">
+    <div class="gift-box">
+      <div class="gift-emoji">🎁✨</div>
+      <p>Gift 1</p>
+    </div>
+
+    <div class="gift-box">
+      <div class="gift-emoji">💝😍</div>
+      <p>Gift 2</p>
+    </div>
+
+    <div class="gift-box">
+      <div class="gift-emoji">🎀🥰</div>
+      <p>Gift 3</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  #nextBtn{
+    margin-top:25px;
+    padding:12px 35px;
+    font-size:18px;
+    border-radius:30px;
+    border:none;
+    background:#ff3366;
+    color:white;
+    cursor:pointer;
+  }
+
+  #gifts{
+    display:none;
+    margin-top:40px;
+    text-align:center;
+  }
+
+  #gifts h2{
+    font-size:34px;
+    color:#d6004c;
+    margin-bottom:25px;
+  }
+
+  .gift-container{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+  }
+
+  .gift-box{
+    width:150px;
+    height:170px;
+    background:#ffe6f0;
+    border-radius:20px;
+    box-shadow:0 6px 15px rgba(0,0,0,0.2);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    animation:float 2s ease-in-out infinite;
+    font-weight:bold;
+    color:#ff3366;
+  }
+
+  .gift-emoji{
+    font-size:34px;
+    margin-bottom:10px;
+  }
+
+  @keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+  }
+</style>
+
+<script>
+  document.getElementById("nextBtn").onclick = function(){
+    document.getElementById("gifts").style.display = "block";
+    document.getElementById("nextBtn").style.display = "none";
+  };
+</script>
+
 </html>
+
 
